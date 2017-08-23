@@ -1,10 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import OrderPageLayout from './components/OrderPageLayout';
-import MenuComponent from './components/MenuComponent';
-import OrderFormComponent from './components/OrderFormComponent';
-import OrderTableComponent from './components/OrderTableComponent';
+import { storiesOf } from '@storybook/react';
+import OrderPageLayout from './OrderPageLayout';
+import MenuComponent from './MenuComponent';
+import OrderFormComponent from './OrderFormComponent';
+import OrderTableComponent from './OrderTableComponent';
 
 let data = {
   menuItems: [
@@ -53,19 +52,10 @@ let data = {
     address: '123 Main Street, Oakland, CA'
   }
 };
-
-ReactDOM.render(
-  <OrderPageLayout className="container">
+storiesOf('OrderPageLayout', module).add('Happy Path', () =>
+  <OrderPageLayout>
     <MenuComponent items={data.menuItems} />
     <OrderTableComponent items={data.orderItems} />
     <OrderFormComponent defaultCustomerInfo={data.customerInfo} />
-  </OrderPageLayout>,
-  document.getElementById('root')
+  </OrderPageLayout>
 );
-
-// react dom .render (pagelayout)
-//
-//
-// react layout in name.js put the slots with props.children defining the layout
-//
-// index.js is using the layout after render and passing the children you put the data elements names

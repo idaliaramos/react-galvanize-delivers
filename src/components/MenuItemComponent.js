@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function MenuItemComponent({ item }) {
   return (
-    <div className="card MenuItemComponent">
+    <div className="card s 12 m6 l7 MenuItemComponent">
       <div className="card-image">
         <img src={item.imagePath} alt={''} />
       </div>

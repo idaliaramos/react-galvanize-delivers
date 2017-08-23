@@ -1,3 +1,15 @@
 @import '../node_modules/materialize-css/dist/css/materialize.css';
 @import '//fonts.googleapis.com/icon?family=Material+Icons';
 @import '../node_modules/materialize-css/dist/css/materialize.css';
+
+/*.MenuItemComponent {
+  margin: 20px;
+  width: 300px;
+}
+
+.MenuComponent {
+  display: flex;
+  flex-wrap: wrap;
+  width: 700px;
+  padding: 10px;
+}*/
