@@ -1,0 +1,4 @@
+.MenuComponent {
+  display: flex;
+  flex-wrap: wrap;
+}
