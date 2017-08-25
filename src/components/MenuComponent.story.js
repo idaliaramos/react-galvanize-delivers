@@ -4,6 +4,7 @@ import MenuComponent from './MenuComponent';
 
 storiesOf('MenuComponent', module).add('Happy path', () =>
   <MenuComponent
+    id=" story menu component 1"
     items={[
       {
         id: 101,

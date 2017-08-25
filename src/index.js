@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import OrderPageLayout from './components/OrderPageLayout';
-import MenuComponent from './components/MenuComponent';
-import OrderFormComponent from './components/OrderFormComponent';
-import OrderTableComponent from './components/OrderTableComponent';
+// import OrderPageLayout from './components/OrderPageLayout';
+// import MenuComponent from './components/MenuComponent';
+// import OrderFormComponent from './components/OrderFormComponent';
+// import OrderTableComponent from './components/OrderTableComponent';
+import OrderPage from './components/OrderPage';
 
 let data = {
   menuItems: [
@@ -55,11 +56,11 @@ let data = {
 };
 
 ReactDOM.render(
-  <OrderPageLayout className="container">
-    <MenuComponent items={data.menuItems} />
-    <OrderTableComponent items={data.orderItems} />
-    <OrderFormComponent defaultCustomerInfo={data.customerInfo} />
-  </OrderPageLayout>,
+  <OrderPage
+    menuItems={data.menuItems}
+    orderItems={data.orderItems}
+    customerInfo={data.customerInfo}
+  />,
   document.getElementById('root')
 );
 

@@ -21,10 +21,7 @@ export default function OrderFormComponent({ defaultCustomerInfo }) {
         </div>
       </div>
 
-      <a
-        className="waves-effect waves-light btn-large "
-        center
-        id="buttonOrder">
+      <a className="waves-effect waves-light btn-large " id="buttonOrder">
         Place Order
       </a>
     </form>

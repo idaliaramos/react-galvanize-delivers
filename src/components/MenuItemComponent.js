@@ -1,6 +1,10 @@
 import React from 'react';
 
-export default function MenuItemComponent({ item }) {
+export default function MenuItemComponent({ item, onAddItem }) {
+  function handleClick(e) {
+    e.preventDefault();
+    onAddItem(item.id);
+  }
   return (
     <div className="card s 12 m6 l7 MenuItemComponent">
       <div className="card-image">
@@ -15,7 +19,9 @@ export default function MenuItemComponent({ item }) {
         </p>
       </div>
       <div className="card-action">
-        <a href="#">ADD TO ORDER</a>
+        <a href="a" onClick={handleClick}>
+          ADD TO ORDER
+        </a>
       </div>
     </div>
   );
