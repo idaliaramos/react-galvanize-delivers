@@ -6,6 +6,7 @@ import OrderFormComponent from './OrderFormComponent';
 import OrderTableComponent from './OrderTableComponent';
 
 let data = {
+  id: 'data',
   menuItems: [
     {
       id: 101,
@@ -34,19 +35,23 @@ let data = {
   ],
   orderItems: [
     {
+      id: 1,
       name: 'Menu Item 1',
       price: 9.99
     },
     {
+      id: 2,
       name: 'Menu Item 2',
       price: 4.99
     },
     {
-      name: 'Menu Item 1',
+      id: 3,
+      name: 'Menu Item 3',
       price: 9.99
     }
   ],
   customerInfo: {
+    id: 'customerInfo',
     name: 'Nestor Toro',
     phone: '(650) 533-8676',
     address: '123 Main Street, Oakland, CA'

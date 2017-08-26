@@ -8,6 +8,7 @@ import './index.css';
 import OrderPage from './components/OrderPage';
 
 let data = {
+  key: 'data',
   menuItems: [
     {
       id: 101,
@@ -54,15 +55,25 @@ let data = {
     address: '123 Main Street, Oakland, CA'
   }
 };
+const orderItems = [];
+function onAddItem(itemId) {
+  console.log('this should fire on click', itemId);
+  orderItems.push(data.menuItems.find(item => item.id === itemId));
+  render();
+}
 
-ReactDOM.render(
-  <OrderPage
-    menuItems={data.menuItems}
-    orderItems={data.orderItems}
-    customerInfo={data.customerInfo}
-  />,
-  document.getElementById('root')
-);
+function render() {
+  ReactDOM.render(
+    <OrderPage
+      menuItems={data.menuItems}
+      orderItems={orderItems}
+      customerInfo={data.customerInfo}
+      onAddItem={onAddItem}
+    />,
+    document.getElementById('root')
+  );
+}
+render();
 
 // react dom .render (pagelayout)
 //

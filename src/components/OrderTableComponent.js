@@ -1,14 +1,18 @@
 import React from 'react';
 // import OrderTableComponent from './OrderTableComponent';
 
-export default function OrderTableComponent({ items }) {
-  let subtotal = items.reduce(function(sum, item) {
-    return sum + item.price;
-  }, 0);
+export default function OrderTableComponent({ orderItems }) {
+  let subtotal = 0;
+  console.log('order is', orderItems);
+  if (orderItems !== 0)
+    orderItems.reduce(function(sum, item) {
+      subtotal = sum + item.price;
+      return subtotal;
+    }, 0);
   let tax = subtotal * 0.085;
   let total = subtotal + tax;
 
-  console.log(tax);
+  console.log('this is the subtotal', subtotal);
   return (
     <div className=" row OrderTableComponent ">
       <table className="striped" id="currentOrderTable">
@@ -31,18 +35,20 @@ export default function OrderTableComponent({ items }) {
               </td>
             </tr>
           )} */}
-          {items.map(item =>
-            <tr key={item.id}>
-              <td>
-                {item.name}
-              </td>
+          {orderItems
+            ? orderItems.map(item =>
+                <tr key={item.id}>
+                  <td>
+                    {item.name}
+                  </td>
 
-              <td />
-              <td>
-                {item.price}
-              </td>
-            </tr>
-          )}
+                  <td />
+                  <td>
+                    {item.price}
+                  </td>
+                </tr>
+              )
+            : ''}
         </tbody>
         {/* <tfooter /> */}
       </table>

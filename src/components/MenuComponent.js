@@ -5,7 +5,7 @@ export default function MenuComponent({ items, onAddItem }) {
   return (
     <div className="MenuComponent">
       {items.map(item =>
-        <MenuItemComponent key={item.id} item={item} onClick={onAddItem} />
+        <MenuItemComponent key={item.id} item={item} onAddItem={onAddItem} />
       )}
     </div>
   );
