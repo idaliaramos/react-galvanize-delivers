@@ -35,20 +35,23 @@ let data = {
       imagePath: '//via.placeholder.com/300x200'
     }
   ],
-  orderItems: [
-    {
-      name: 'Menu Item 1',
-      price: 9.99
-    },
-    {
-      name: 'Menu Item 2',
-      price: 4.99
-    },
-    {
-      name: 'Menu Item 1',
-      price: 9.99
-    }
-  ],
+  // orderItems: [
+  //   {
+  //     id: 102,
+  //     name: 'Menu Item 1',
+  //     price: 9.99
+  //   },
+  //   {
+  //     id: 102,
+  //     name: 'Menu Item 2',
+  //     price: 4.99
+  //   },
+  //   {
+  //     id: 103,
+  //     name: 'Menu Item 1',
+  //     price: 9.99
+  //   }
+  // ],
   customerInfo: {
     name: 'Nestor Toro',
     phone: '(650) 533-8676',

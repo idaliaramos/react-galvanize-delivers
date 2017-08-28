@@ -15,7 +15,7 @@ export default function OrderPage({
     <div className="OrderPage">
       <OrderPageLayout>
         <MenuComponent items={menuItems} onAddItem={onAddItem} />
-        <OrderTableComponent ordertems={orderItems} />
+        <OrderTableComponent orderItems={orderItems} />
         <OrderFormComponent defaultCustomerInfo={customerInfo} />
       </OrderPageLayout>
     </div>

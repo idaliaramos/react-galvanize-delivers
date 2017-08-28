@@ -3,12 +3,18 @@ import React from 'react';
 
 export default function OrderTableComponent({ orderItems }) {
   let subtotal = 0;
-  console.log('order is', orderItems);
-  if (orderItems !== 0)
+
+  // orderItems ? orderItems.reduce(function(sum, item) {
+  //   // console.log('hello');
+  //    return subtotal = sum + item.price
+  // }, 0)
+  if (orderItems) {
     orderItems.reduce(function(sum, item) {
-      subtotal = sum + item.price;
-      return subtotal;
+      // console.log('hello');
+      return (subtotal = sum + item.price);
     }, 0);
+  }
+
   let tax = subtotal * 0.085;
   let total = subtotal + tax;
 
