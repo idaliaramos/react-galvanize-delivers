@@ -4,13 +4,9 @@ import React from 'react';
 export default function OrderTableComponent({ orderItems }) {
   let subtotal = 0;
 
-  // orderItems ? orderItems.reduce(function(sum, item) {
-  //   // console.log('hello');
-  //    return subtotal = sum + item.price
-  // }, 0)
   if (orderItems) {
     orderItems.reduce(function(sum, item) {
-      // console.log('hello');
+      // console.log('hello')
       return (subtotal = sum + item.price);
     }, 0);
   }
@@ -30,17 +26,6 @@ export default function OrderTableComponent({ orderItems }) {
           </tr>
         </thead>
         <tbody>
-          {/* {items.map(item =>
-
-            <tr key= {item.id}>
-              <td className="right-align">
-                {item.name}
-              </td>
-              <td className="right-align">
-                {item.price}
-              </td>
-            </tr>
-          )} */}
           {orderItems
             ? orderItems.map(item =>
                 <tr key={item.id}>
