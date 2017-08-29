@@ -1,10 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import OrderPageLayout from './components/OrderPageLayout';
-// import MenuComponent from './components/MenuComponent';
-// import OrderFormComponent from './components/OrderFormComponent';
-// import OrderTableComponent from './components/OrderTableComponent';
 import OrderPage from './components/OrderPage';
 
 let data = {
@@ -34,7 +30,7 @@ let data = {
       price: 7.99,
       imagePath: '//via.placeholder.com/300x200'
     }
-  ],
+  ]
   // orderItems: [
   //   {
   //     id: 102,
@@ -52,16 +48,23 @@ let data = {
   //     price: 9.99
   //   }
   // ],
-  customerInfo: {
-    name: 'Nestor Toro',
-    phone: '(650) 533-8676',
-    address: '123 Main Street, Oakland, CA'
-  }
 };
-const orderItems = [];
+
+let customerInfo = null;
+let orderItems = [];
 function onAddItem(itemId) {
   console.log('this should fire on click', itemId);
   orderItems.push(data.menuItems.find(item => item.id === itemId));
+  render();
+}
+function onSubmitOrderForm({ name, phone, address }) {
+  customerInfo = { name, phone, address };
+  console.log(customerInfo);
+  render();
+}
+function onClosedOrderSuccessMessage() {
+  customerInfo = null;
+  orderItems = [];
   render();
 }
 
@@ -70,8 +73,10 @@ function render() {
     <OrderPage
       menuItems={data.menuItems}
       orderItems={orderItems}
-      customerInfo={data.customerInfo}
+      customerInfo={customerInfo}
       onAddItem={onAddItem}
+      onSubmitOrderForm={onSubmitOrderForm}
+      onClosedOrderSuccessMessage={onClosedOrderSuccessMessage}
     />,
     document.getElementById('root')
   );

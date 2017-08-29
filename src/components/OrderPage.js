@@ -3,12 +3,14 @@ import OrderPageLayout from './OrderPageLayout';
 import MenuComponent from './MenuComponent';
 import OrderFormComponent from './OrderFormComponent';
 import OrderTableComponent from './OrderTableComponent';
-
+import OrderSuccessMessageComponent from './OrderSuccessMessageComponent';
 export default function OrderPage({
   menuItems,
   orderItems,
   customerInfo,
-  onAddItem
+  onAddItem,
+  onSubmitOrderForm,
+  onClosedOrderSuccessMessage
 }) {
   console.log('order is ', orderItems);
   return (
@@ -16,7 +18,15 @@ export default function OrderPage({
       <OrderPageLayout>
         <MenuComponent items={menuItems} onAddItem={onAddItem} />
         <OrderTableComponent orderItems={orderItems} />
-        <OrderFormComponent defaultCustomerInfo={customerInfo} />
+        {customerInfo
+          ? <OrderSuccessMessageComponent
+              customerInfo={customerInfo}
+              onClosedOrderSuccessMessage={onClosedOrderSuccessMessage}
+            />
+          : <OrderFormComponent
+              orderItems={orderItems}
+              onSubmit={onSubmitOrderForm}
+            />}
       </OrderPageLayout>
     </div>
   );
