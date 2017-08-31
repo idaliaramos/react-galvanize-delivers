@@ -12,7 +12,7 @@ export default function OrderPage({
   onSubmitOrderForm,
   onClosedOrderSuccessMessage
 }) {
-  console.log('order is ', orderItems);
+  // console.log('order is ', orderItems);
   return (
     <div className="OrderPage">
       <OrderPageLayout>

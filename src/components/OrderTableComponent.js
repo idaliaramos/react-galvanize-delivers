@@ -14,7 +14,7 @@ export default function OrderTableComponent({ orderItems }) {
   let tax = subtotal * 0.085;
   let total = subtotal + tax;
 
-  console.log('this is the subtotal', subtotal);
+  // console.log('this is the subtotal', subtotal);
   return (
     <div className=" row OrderTableComponent ">
       <table className="striped" id="currentOrderTable">

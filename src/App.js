@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import OrderPage from './components/OrderPage';
+import getMenuItems from './api/getMenuItems';
 
 class App extends Component {
   state = {
-    menuItems: null,
+    menuItems: [],
     orderItems: [],
     customerInfo: null
   };
@@ -22,24 +23,29 @@ class App extends Component {
     );
   }
 
-  _addItem = itemId => {
+  _onAddItem = itemId => {
     this.setState(prevState => {
       const newOrderItems = prevState.orderItems.slice(0);
-
+      newOrderItems.push(prevState.menuItems.find(item => item.id === itemId));
       return { orderItems: newOrderItems };
     });
   };
-  _onAddItem = item => {
-    // console.log('this should fire on click', itemId);
-    this.orderItems.push(this.menuItems.find(item => item.id === this.itemId));
+
+  onSubmitOrderForm = customerInfo => {
+    this.setState({ customerInfo });
   };
-  onSubmitOrderForm({ name, phone, address }) {
-    this.customerInfo = { name, phone, address };
-    console.log(this.customerInfo);
-  }
-  onClosedOrderSuccessMessage() {
-    this.customerInfo = null;
-    this.orderItems = [];
+
+  onClosedOrderSuccessMessage = () => {
+    this.setState({
+      customerInfo: null,
+      orderItems: []
+    });
+  };
+
+  componentDidMount() {
+    getMenuItems().then(menuItems => {
+      this.setState({ menuItems });
+    });
   }
 }
 
