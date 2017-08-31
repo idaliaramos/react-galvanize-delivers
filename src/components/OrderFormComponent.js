@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class OrderFormComponent extends React.Component {
+export default class OrderFormComponent extends Component {
   state = {
     hasValidationError: false
   };

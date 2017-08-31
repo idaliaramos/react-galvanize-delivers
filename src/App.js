@@ -1,20 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import OrderPage from './OrderPageComponent';
 
 class App extends Component {
+  state = {
+    menuItems: null,
+    orderItems: [],
+    customerInfo: null
+  };
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+      <OrderPage
+        menuItems={this.menuItems}
+        orderItems={this.orderItems}
+        customerInfo={this.customerInfo}
+        onAddItem={this.onAddItem}
+        onSubmitOrderForm={this.onSubmitOrderForm}
+        onClosedOrderSuccessMessage={this.onClosedOrderSuccessMessage}
+      />
+    ), document.getElementById('root');
+  }
+  _onAddItem = item => {
+    // console.log('this should fire on click', itemId);
+    this.orderItems.push(this.menuItems.find(item => item.id === this.itemId));
+  };
+  onSubmitOrderForm({ name, phone, address }) {
+    this.customerInfo = { name, phone, address };
+    console.log(this.customerInfo);
+  }
+  onClosedOrderSuccessMessage() {
+    this.customerInfo = null;
+    this.orderItems = [];
   }
 }
 
