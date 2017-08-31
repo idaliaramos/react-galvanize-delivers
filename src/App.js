@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import OrderPage from './OrderPageComponent';
+import OrderPage from './components/OrderPage';
 
 class App extends Component {
   state = {
@@ -8,18 +8,27 @@ class App extends Component {
     orderItems: [],
     customerInfo: null
   };
+
   render() {
     return (
       <OrderPage
-        menuItems={this.menuItems}
-        orderItems={this.orderItems}
-        customerInfo={this.customerInfo}
-        onAddItem={this.onAddItem}
+        menuItems={this.state.menuItems}
+        orderItems={this.state.orderItems}
+        customerInfo={this.state.customerInfo}
+        onAddItem={this._onAddItem}
         onSubmitOrderForm={this.onSubmitOrderForm}
         onClosedOrderSuccessMessage={this.onClosedOrderSuccessMessage}
       />
-    ), document.getElementById('root');
+    );
   }
+
+  _addItem = itemId => {
+    this.setState(prevState => {
+      const newOrderItems = prevState.orderItems.slice(0);
+
+      return { orderItems: newOrderItems };
+    });
+  };
   _onAddItem = item => {
     // console.log('this should fire on click', itemId);
     this.orderItems.push(this.menuItems.find(item => item.id === this.itemId));
