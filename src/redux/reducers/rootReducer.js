@@ -7,30 +7,39 @@ export default function rootReducer(
   action
 ) {
   switch (action.type) {
-    case 'Add_Menu_Item':
-      return { menuItems: currentState.menuItems };
-
-    case 'Add_Order-Items':
-      //   return { orderItems:[ ...currentState.orderItems ]};
-
+    case 'Get_Menu_Items':
       return {
+        ...currentState,
+        menuItems: action.menuItems
+      };
+
+    case 'Add_Menu_Item':
+      return {
+        ...currentState,
         orderItems: [
           ...currentState.orderItems,
           currentState.menuItems.find(item => {
-            console.log('in the ne', item);
             return item.id === action.itemId;
           })
         ]
       };
 
-    // newOrderItems.push(prevState.menuItems.find(item => item.id === itemId));
-    // return { orderItems: newOrderItems }
-
     case 'Update_Customer_Info':
-      return { customerInfo: currentState.customerInfo };
+      return {
+        ...currentState,
+        customerInfo: {
+          name: action.name,
+          phone: action.phone,
+          address: action.address
+        }
+      };
 
     case 'Order_Success_Message':
-      return { customerInfo: currentState.customerInfo };
+      return {
+        ...currentState,
+        customerInfo: action.customerInfo,
+        orderItems: action.orderItems
+      };
 
     default:
       return currentState;

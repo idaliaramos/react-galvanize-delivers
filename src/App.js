@@ -30,35 +30,30 @@ class App extends Component {
       />
     );
   }
-  //first
   _onAddItem = itemId => {
-    this.setState(prevState => {
-      const newOrderItems = prevState.orderItems.slice(0);
-      newOrderItems.push(prevState.menuItems.find(item => item.id === itemId));
-      return { orderItems: newOrderItems };
-    });
+    this.props.store.dispatch({ type: 'Add_Menu_Item', itemId });
   };
-  //2sd
-  onSubmitOrderForm = customerInfo => {
+  onSubmitOrderForm = ({ name, phone, address }) => {
     // this.setState({ customerInfo });
     this.props.store.dispatch({
-      type: 'Update_Customer_Info'
+      type: 'Update_Customer_Info',
+      name: name,
+      phone: phone,
+      address: address
     });
   };
-
   onClosedOrderSuccessMessage = () => {
     this.props.store.dispatch({
       type: 'Order_Success_Message'
     });
-    // this.setState({
-    //   customerInfo: null,
-    //   orderItems: []
-    // });
   };
-  //3rd
+
   componentDidMount() {
     getMenuItems().then(menuItems => {
-      this.setState({ menuItems });
+      this.props.store.dispatch({
+        type: 'Get_Menu_Items',
+        menuItems
+      });
     });
   }
 }
