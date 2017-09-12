@@ -1,10 +1,10 @@
 import React from 'react';
 
 export default function MenuItemComponent({ item, onAddItem }) {
-  console.log('this is in component', onAddItem);
   function handleClick(e) {
     e.preventDefault();
     onAddItem(item.id);
+    console.log('in the card action');
   }
   return (
     <div className="card s 12 m6 l7 MenuItemComponent">

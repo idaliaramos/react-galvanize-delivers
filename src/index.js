@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 // import OrderPage from './components/OrderPage';
 import App from './App';
-ReactDOM.render(<App />, document.getElementById('root'));
-
+import setupStore from './redux/setupStore';
+const store = setupStore();
+ReactDOM.render(<App store={store} />, document.getElementById('root'));
 // let customerInfo = null;
 // let orderItems = [];
 // function onAddItem(itemId) {

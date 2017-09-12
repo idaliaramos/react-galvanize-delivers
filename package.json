@@ -7,7 +7,9 @@
     "materialize-css": "^0.100.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-scripts": "1.0.11"
+    "react-redux": "^5.0.6",
+    "react-scripts": "1.0.11",
+    "react-test-renderer": "^15.6.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -17,6 +19,7 @@
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "devDependencies": {
-    "@storybook/react": "^3.2.5"
+    "@storybook/react": "^3.2.5",
+    "enzyme": "^2.9.1"
   }
 }
