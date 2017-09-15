@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import OrderPage from './components/OrderPage';
-import getMenuItems from './api/getMenuItems';
+// import getMenuItems from './api/getMenuItems';
+import getMenuItemsThunk from './redux/thunks/getMenuItemsThunk';
 
 class App extends Component {
   constructor(props) {
@@ -49,12 +50,14 @@ class App extends Component {
   };
 
   componentDidMount() {
-    getMenuItems().then(menuItems => {
-      this.props.store.dispatch({
-        type: 'Get_Menu_Items',
-        menuItems
-      });
-    });
+    this.props.store.dispatch(getMenuItemsThunk());
+    // getMenuItems()
+    // .then(menuItems => {
+    //   this.props.store.dispatch({
+    //     type: 'Get_Menu_Items',
+    //     menuItems
+    //   });
+    // });
   }
 }
 

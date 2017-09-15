@@ -7,7 +7,7 @@ export default function rootReducer(
   action
 ) {
   switch (action.type) {
-    case 'Get_Menu_Items':
+    case 'GET_MENU_ITEMS':
       return {
         ...currentState,
         menuItems: action.menuItems
@@ -17,7 +17,7 @@ export default function rootReducer(
       return {
         ...currentState,
         orderItems: [
-          ...currentState,
+          ...currentState.orderItems,
           currentState.menuItems.find(item => {
             return item.id === action.itemId;
           })
