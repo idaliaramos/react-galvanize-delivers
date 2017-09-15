@@ -17,7 +17,7 @@ export default function rootReducer(
       return {
         ...currentState,
         orderItems: [
-          ...currentState.orderItems,
+          ...currentState,
           currentState.menuItems.find(item => {
             return item.id === action.itemId;
           })
