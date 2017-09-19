@@ -67,7 +67,6 @@ export default class OrderFormComponent extends Component {
     const name = $form.icon_prefix.value.trim();
     const address = $form.icon_telephone.value.trim();
     const phone = $form.icon_home.value.trim();
-    // console.log({ name, address, phone });
 
     if (name && address && phone) {
       onSubmit({ name, address, phone });
